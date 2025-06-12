@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+BASE_URL='http://127.0.0.1:8084'
 import requests
 import json
 from typing import Dict, Any, Optional
@@ -154,16 +155,16 @@ def call_get_keys() -> Dict[str, Any]:
     response = requests.get(endpoint)
     return handle_api_response(response)
 
-def call_analyzer(folder_path: Optional[str] = None, environment_path: Optional[str] = None) -> Dict[str, Any]:
+def call_analyzer(folder_path: str, environment_path: str) -> Dict[str, Any]:
     """
     Analyzes Python files in a specified directory to identify dependencies,
     generate a requirements file, and extract contextual information like
     app type, working directory, and entry point.
 
     Args:
-        folder_path (Optional[str]): The path to the folder to analyze.
+        folder_path (str): The path to the folder to analyze.
                                      Server-side logic might require this.
-        environment_path (Optional[str]): Path to the Python environment
+        environment_path (str): Path to the Python environment
                                           to help resolve dependencies.
 
     Returns:

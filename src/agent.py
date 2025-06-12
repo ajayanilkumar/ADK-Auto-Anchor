@@ -23,6 +23,8 @@ root_agent = Agent(
     call_jenkinsfile_gen,
     call_get_creds,
     call_infra,
+    call_get_environments,
+    call_github_webhook_setup,
     ],
     generate_content_config=types.GenerateContentConfig(temperature=0.2),
 
